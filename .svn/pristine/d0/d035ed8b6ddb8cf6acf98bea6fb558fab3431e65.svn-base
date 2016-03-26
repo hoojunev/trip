@@ -1,0 +1,118 @@
+package cn.itcast.nsfw.item.entity;
+
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * Item entity. @author MyEclipse Persistence Tools
+ */
+
+public class Item implements java.io.Serializable {
+
+	// Fields
+
+	private String itemId;
+	private String itemNo;
+	private String itemName;
+	private String itemDept;
+	private String itemDealDeptr;
+	private String itemState;
+	private String userId;
+	private Set reserves = new HashSet(0);
+
+	// Constructors
+	
+	//状态
+	public static String ITEM_STATE_VALID = "1";
+	public static String ITEM_STATE_INVALIN = "0";
+
+	
+	/** default constructor */
+	public Item() {
+	}
+
+	/** minimal constructor */
+	public Item(String itemId) {
+		this.itemId = itemId;
+	}
+
+	/** full constructor */
+	public Item(String itemId, String itemNo, String itemName, String itemDept,
+			String itemDealDeptr, String itemState, String userId, Set reserves) {
+		this.itemId = itemId;
+		this.itemNo = itemNo;
+		this.itemName = itemName;
+		this.itemDept = itemDept;
+		this.itemDealDeptr = itemDealDeptr;
+		this.itemState = itemState;
+		this.userId = userId;
+		this.reserves = reserves;
+	}
+
+	// Property accessors
+
+	public String getItemId() {
+		return this.itemId;
+	}
+
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
+	}
+
+	public String getItemNo() {
+		return this.itemNo;
+	}
+
+	public void setItemNo(String itemNo) {
+		this.itemNo = itemNo;
+	}
+
+	public String getItemName() {
+		return this.itemName;
+	}
+
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+
+	public String getItemDept() {
+		return this.itemDept;
+	}
+
+	public void setItemDept(String itemDept) {
+		this.itemDept = itemDept;
+	}
+
+	public String getItemDealDeptr() {
+		return this.itemDealDeptr;
+	}
+
+	public void setItemDealDeptr(String itemDealDeptr) {
+		this.itemDealDeptr = itemDealDeptr;
+	}
+
+	public String getItemState() {
+		return this.itemState;
+	}
+
+	public void setItemState(String itemState) {
+		this.itemState = itemState;
+	}
+
+	public String getUserId() {
+		return this.userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public Set getReserves() {
+		return this.reserves;
+	}
+
+	public void setReserves(Set reserves) {
+		this.reserves = reserves;
+	}
+
+}

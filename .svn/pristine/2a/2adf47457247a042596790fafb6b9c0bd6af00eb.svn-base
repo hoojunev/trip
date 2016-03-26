@@ -1,0 +1,169 @@
+package cn.itcast.nsfw.reserve.action;
+
+import java.sql.Timestamp;
+import java.util.Date;
+
+import javax.annotation.Resource;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.time.DateUtils;
+
+import cn.itcast.core.action.BaseAction;
+import cn.itcast.core.util.QueryHelper;
+import cn.itcast.nsfw.item.entity.Item;
+import cn.itcast.nsfw.item.service.ItemService;
+import cn.itcast.nsfw.reserve.entity.Reserve;
+import cn.itcast.nsfw.reserve.service.ReserveService;
+
+import com.opensymphony.xwork2.ActionContext;
+
+public class ReserveAction extends BaseAction {
+
+	@Resource
+	private ReserveService reserveService;
+	@Resource
+	private ItemService itemService;
+
+	private Item item;
+	private Reserve reserve;
+
+	private String startTime;
+	private String endTime;
+	
+	private String strReserveNo;
+	private String strResult;
+	private String strReplyTime;
+	// 显示预约列表
+	public String listUI() {
+		// 加载预约状态集合
+		ActionContext.getContext().getContextMap()
+				.put("reserveStateMap", Reserve.RESERVE_STATE_MAP);
+		try {
+			QueryHelper queryHelper = new QueryHelper(Reserve.class, "");
+			if (StringUtils.isNotBlank(startTime)) {
+				startTime = decodeStr(startTime);
+				queryHelper.addCondition("reserveTime >= ?", DateUtils
+						.parseDate(startTime + ":00", "yyyy-MM-dd HH:mm:ss"));
+			}
+			if (StringUtils.isNotBlank(endTime)) {
+				endTime = decodeStr(endTime);
+				queryHelper.addCondition("reserveTime <= ?", DateUtils
+						.parseDate(endTime + ":00", "yyyy-MM-dd HH:mm:ss"));
+			}
+			if (reserve != null) {
+				if(StringUtils.isNotBlank(reserve.getResult())){
+					queryHelper.addCondition("result = ?", reserve.getResult());
+				}
+				if (StringUtils.isNotBlank(reserve.getReserveNo())) {
+					queryHelper.addCondition("reserveNo = ?",
+							reserve.getReserveNo());
+				}
+			}
+			//根据状态升序排序
+			queryHelper.addOrderByProperty("result", QueryHelper.ORDER_BY_ASC);
+			//根据投诉时间升序排序
+			queryHelper.addOrderByProperty("reserveTime", QueryHelper.ORDER_BY_ASC);
+			
+			pageResult= reserveService.getPageResult(queryHelper, getPageNo(), getPageSize());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return "listUI";
+	}
+	
+	//跳转到受理页面
+	public String dealUI(){
+		// 加载预约状态集合
+		ActionContext.getContext().getContextMap().put("reserveStateMap", Reserve.RESERVE_STATE_MAP);
+		if(reserve!=null){
+			strReserveNo=reserve.getReserveNo();
+			strResult=reserve.getResult();
+			reserve = reserveService.findObjectById(reserve.getReserveId());
+			reserve.setReplyTime(new Timestamp(new Date().getTime()));
+		}
+		return "dealUI";
+	}
+	
+	//受理预约信息
+	public String deal(){
+		//1.保存预约受理信息
+		if(reserve!=null&&item!=null){
+			Reserve tmpReserve = reserveService.findObjectById(reserve.getReserveId());
+			tmpReserve.setReplyTime(new Timestamp(new Date().getTime()));
+			tmpReserve.setContent(reserve.getContent());
+			tmpReserve.setResult(reserve.getResult());
+			tmpReserve.setUserId(tmpReserve.getItem().getUserId());
+			
+			
+			
+			reserveService.update(tmpReserve);
+			
+//			Reserve tmpReserve = reserveService.findObjectById(reserve.getReserveId());
+//			reserve.setUserId(tmpReserve.getItem().getUserId());
+//			Item tmpItem = itemService.findObjectById(tmpReserve.getItem());
+//			tmpItem.getReserves().add(tmpReserve);
+//			//reserveService.update(tmpReserve);
+//			itemService.update(tmpItem);
+		}
+		return "list";
+	}
+	
+	public Item getItem(){
+		return item;
+	}
+	
+	public void setItem(Item item){
+		this.item=item;
+	}
+	
+	public Reserve getReserve() {
+		return reserve;
+	}
+
+	public void setReserve(Reserve reserve) {
+		this.reserve = reserve;
+	}
+
+	public String getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+	public String getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+
+	public String getStrReserveNo() {
+		return strReserveNo;
+	}
+
+	public void setStrReserveNo(String strReserveNo) {
+		this.strReserveNo = strReserveNo;
+	}
+
+	public String getStrResult() {
+		return strResult;
+	}
+
+	public void setStrResult(String strResult) {
+		this.strResult = strResult;
+	}
+
+	public String getStrReplyTime() {
+		return strReplyTime;
+	}
+
+	public void setStrReplyTime(String strReplyTime) {
+		this.strReplyTime = strReplyTime;
+	}
+	
+	
+}

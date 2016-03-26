@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/js/ueditor/jsp/controller.jsp,WebRoot/js/fusioncharts/fusioncharts.js,WebRoot/js/ueditor/ueditor.all.min.js,src/cn/itcast/login/conf/login-struts.xml,WebRoot/js/ueditor/jsp/config.json,WebRoot/js/jquery/jquery-1.10.2.min.js,WebRoot/js/ueditor/third-party/highcharts/modules/map.js,WebRoot/js/ueditor/third-party/jquery-1.10.2.min.js
+validator.Unchecked=

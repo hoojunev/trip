@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	
+	<package name="reserveItemAction" namespace="/nsfw" extends="json-default,base-default">
+		<action name="reserveItem_*" class="cn.itcast.nsfw.item.action.ItemAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/nsfw/reserveItem/{1}.jsp</result>
+			<result name="list" type="redirectAction">
+				<param name="actionName">reserveItem_listUI</param>
+				<param name="item.itemName">${strItemTitle}</param>
+				<param name="item.itemDept">${strItemDept}</param>
+				<param name="encode">true</param>
+			</result>
+			<result name="jsonResult" type="json">
+				<param name="root">resultMap</param>
+			</result>
+			<result name="noPermission">/WEB-INF/jsp/noPermissionUI.jsp</result>
+		</action>
+	</package>
+</struts>

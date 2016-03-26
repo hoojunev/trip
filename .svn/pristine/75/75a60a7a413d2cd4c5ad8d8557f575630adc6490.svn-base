@@ -1,0 +1,285 @@
+package cn.itcast.nsfw.user.action;
+
+import java.io.File;
+import java.net.URLDecoder;
+import java.util.List;
+import java.util.UUID;
+
+import javax.annotation.Resource;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.StringUtils;
+import org.apache.struts2.ServletActionContext;
+
+import cn.itcast.core.action.BaseAction;
+import cn.itcast.core.exception.ActionException;
+import cn.itcast.core.util.QueryHelper;
+import cn.itcast.nsfw.role.service.RoleService;
+import cn.itcast.nsfw.user.entity.User;
+import cn.itcast.nsfw.user.entity.UserRole;
+import cn.itcast.nsfw.user.service.UserService;
+
+import com.opensymphony.xwork2.ActionContext;
+
+public class UserAction extends BaseAction {
+	
+	@Resource
+	private UserService userService;
+	
+	@Resource
+	private RoleService roleService;
+	
+	private User user;
+	
+	private File headImg;
+	private String headImgFileName;
+	private String headImgContentType;
+	
+	private File userExcel;
+	private String userExcelFileName;
+	private String userExcelContentType;
+	
+	private String[] roleIds;
+	
+	private String strName;
+
+	//列表页面
+	public String listUI() throws ActionException{
+		QueryHelper queryHelper = new QueryHelper(User.class, "");
+		try {
+			if(user != null){
+				if(StringUtils.isNotBlank(user.getName())){
+					user.setName(URLDecoder.decode(user.getName(), "utf-8"));
+					queryHelper.addCondition("name like ?", "%"+ user.getName() + "%");
+				}
+			}
+			
+			pageResult = userService.getPageResult(queryHelper, getPageNo(), getPageSize());
+		} catch (Exception e) {
+			return "error";
+		}
+		return "listUI";
+	}
+	//跳转到新增页面
+	public String addUI(){
+		//加载角色列表
+		ActionContext.getContext().getContextMap().put("roleList", roleService.findObjects());
+		if(user != null){
+			strName = user.getName();
+		}
+		return "addUI";
+	}
+	//保存新增
+	public String add(){
+		try {
+			if(user != null){
+				//处理用户头像
+				//1、获取头像文件（File,FileName,ContentType）
+				if(headImg != null){
+					//2、保存头像文件到服务器（/upload/user）
+					//2.1、获取/upload/user在服务器中的绝对路径
+					String filePath = ServletActionContext.getServletContext().getRealPath("/upload/user");
+					//获取文件名称
+					String fileName = UUID.randomUUID().toString() + headImgFileName.substring(headImgFileName.lastIndexOf("."));
+					//2.2、保存头像文件到服务器路径下
+					FileUtils.copyFile(headImg, new File(filePath, fileName));
+					
+					//3、设置用户头像相对路径字段
+					user.setHeadImg(fileName);
+				}
+				//保存用户及用户对应的角色
+				userService.saveUserAndRole(user, roleIds);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "list";
+	}
+	//
+	//跳转到编辑页面
+	public String editUI(){
+		//加载角色列表
+		ActionContext.getContext().getContextMap().put("roleList", roleService.findObjects());
+		if(user != null && StringUtils.isNotBlank(user.getId())){
+			strName = user.getName();
+			user = userService.findObjectById(user.getId());
+			//处理角色回显
+			//1、获取用户对应的所有用户角色
+			List<UserRole> userRoles = userService.getUserRolesByUserId(user.getId());
+			if(userRoles != null && userRoles.size() > 0){
+				roleIds = new String[userRoles.size()];
+				for(int i = 0; i < userRoles.size(); i++){
+					roleIds[i] = userRoles.get(i).getId().getRole().getRoleId(); 
+				}
+			}
+		}
+		return "editUI";
+	}
+	//保存编辑
+	public String edit(){
+		try {
+			if(user != null){
+				//处理用户头像
+				//1、获取头像文件（File,FileName,ContentType）
+				if(headImg != null){
+					//2、保存头像文件到服务器（/upload/user）
+					//2.1、获取/upload/user在服务器中的绝对路径
+					String filePath = ServletActionContext.getServletContext().getRealPath("/upload/user");
+					//获取文件名称
+					String fileName = UUID.randomUUID().toString() + headImgFileName.substring(headImgFileName.lastIndexOf("."));
+					//2.2、保存头像文件到服务器路径下
+					FileUtils.copyFile(headImg, new File(filePath, fileName));
+					
+					//删除原有文件
+					File file = new File(filePath, user.getHeadImg());
+					if(file.exists()) file.delete();
+					
+					//3、设置用户头像相对路径字段
+					user.setHeadImg(fileName);
+				}
+				//更新用户及用户对应的角色
+				userService.updateUserAndRole(user, roleIds);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "list";
+	}
+	//
+	//根据ID删除
+	public String delete(){
+		if(user != null){
+			strName = user.getName();
+		}
+		if(user != null && StringUtils.isNotBlank(user.getId())){
+			userService.delete(user.getId());
+		}
+		return "list";
+	}
+	//
+	//批量删除
+	public String deleteSelected(){
+		if(user != null){
+			strName = user.getName();
+		}
+		if(selectedRow != null){
+			for(String id: selectedRow){
+				userService.delete(id);
+			}
+		}
+		return "list";
+	}
+	
+	//导出用户列表
+	public void exportExcel(){
+		try {
+			//1、查询用户列表
+			//2、导出用户列表到Excel
+			HttpServletResponse response = ServletActionContext.getResponse();
+			response.setContentType("application/x-excel");
+			response.setHeader("Content-Disposition", "attachment;filename=" + new String("用户列表.xls".getBytes(), "ISO-8859-1"));
+			ServletOutputStream outputStream = response.getOutputStream();
+			userService.exportExcel(userService.findObjects(), outputStream);
+			if(outputStream != null){
+				outputStream.close();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	//导入用户列表
+	public String importExcel(){
+		//1、获取Excel文件
+		if(userExcel != null){
+			if(userExcelFileName.matches("^.+\\.(?i)((xls)|(xlsx))$")){
+				//2、解析Excel并将数据插入到数据库中
+				userService.importExcel(userExcel);
+			}
+		}
+		//3、返回列表
+		return "list";
+	}
+	
+	//帐号唯一性校验
+	public void verifyAccount(){
+		try {
+			//1、获取帐号
+			if(user != null && StringUtils.isNotBlank(user.getAccount())){
+				//2、用户帐号唯一性校验：根据帐号和ID查询用户列表；如果存在列表说明该帐号已经存在不可使用，如果不存在用户列表说明可使用该帐号
+				List<User> list = userService.findUsersByAccountAndId(user.getAccount(), user.getId());
+				String res = "true";
+				if(list != null && list.size() > 0){//说明帐号存在
+					res = "false";
+				}
+					
+				//3、输出校验结果
+				HttpServletResponse response = ServletActionContext.getResponse();
+				response.setContentType("text/html");
+				ServletOutputStream outputStream = response.getOutputStream();
+				outputStream.write(res.getBytes());
+				outputStream.close();
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	public File getHeadImg() {
+		return headImg;
+	}
+	public void setHeadImg(File headImg) {
+		this.headImg = headImg;
+	}
+	public String getHeadImgFileName() {
+		return headImgFileName;
+	}
+	public void setHeadImgFileName(String headImgFileName) {
+		this.headImgFileName = headImgFileName;
+	}
+	public String getHeadImgContentType() {
+		return headImgContentType;
+	}
+	public void setHeadImgContentType(String headImgContentType) {
+		this.headImgContentType = headImgContentType;
+	}
+	public File getUserExcel() {
+		return userExcel;
+	}
+	public void setUserExcel(File userExcel) {
+		this.userExcel = userExcel;
+	}
+	public String getUserExcelFileName() {
+		return userExcelFileName;
+	}
+	public void setUserExcelFileName(String userExcelFileName) {
+		this.userExcelFileName = userExcelFileName;
+	}
+	public String getUserExcelContentType() {
+		return userExcelContentType;
+	}
+	public void setUserExcelContentType(String userExcelContentType) {
+		this.userExcelContentType = userExcelContentType;
+	}
+	public String[] getRoleIds() {
+		return roleIds;
+	}
+	public void setRoleIds(String[] roleIds) {
+		this.roleIds = roleIds;
+	}
+	public String getStrName() {
+		return strName;
+	}
+
+	public void setStrName(String strName) {
+		this.strName = strName;
+	}
+}

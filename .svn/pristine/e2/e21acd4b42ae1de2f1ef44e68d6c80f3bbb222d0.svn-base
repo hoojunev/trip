@@ -1,0 +1,95 @@
+package cn.itcast.nsfw.reserve.action;
+
+import javax.annotation.Resource;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.time.DateUtils;
+
+import cn.itcast.core.action.BaseAction;
+import cn.itcast.core.util.PageResult;
+import cn.itcast.core.util.QueryHelper;
+import cn.itcast.nsfw.reserve.entity.Reserve;
+import cn.itcast.nsfw.reserve.service.ReserveService;
+
+import com.opensymphony.xwork2.ActionContext;
+
+public class ReserveAction extends BaseAction {
+
+	@Resource
+	private ReserveService reserveService;
+
+	private Reserve reserve;
+
+	private String startTime;
+	private String endTime;
+
+	// 显示预约列表
+	public String listUI() {
+		// 加载预约状态集合
+		ActionContext.getContext().getContextMap()
+				.put("reserveStateMap", Reserve.RESERVE_STATE_MAP);
+		try {
+			QueryHelper queryHelper = new QueryHelper(Reserve.class, "");
+			if (StringUtils.isNotBlank(startTime)) {
+				startTime = decodeStr(startTime);
+				queryHelper.addCondition("reserveTime >= ?", DateUtils
+						.parseDate(startTime + ":00", "yyyy-MM-dd HH:mm:ss"));
+			}
+			if (StringUtils.isNotBlank(endTime)) {
+				endTime = decodeStr(endTime);
+				queryHelper.addCondition("reserveTime <= ?", DateUtils
+						.parseDate(endTime + ":00", "yyyy-MM-dd HH:mm:ss"));
+			}
+			if (reserve != null) {
+				if (StringUtils.isNotBlank(reserve.getReserveNo())) {
+					queryHelper.addCondition("reserveNo = ?",
+							reserve.getReserveNo());
+				}
+			}
+			//根据状态升序排序
+			queryHelper.addOrderByProperty("result", QueryHelper.ORDER_BY_ASC);
+			//根据投诉时间升序排序
+			queryHelper.addOrderByProperty("reserveTime", QueryHelper.ORDER_BY_ASC);
+			
+			PageResult pr = reserveService.getPageResult(queryHelper, getPageNo(), getPageSize());
+			pageResult = pr;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return "listUI";
+	}
+	
+	//跳转到受理页面
+	public String dealUI(){
+		
+		
+		return "dealUI";
+	}
+	
+
+	public Reserve getReserve() {
+		return reserve;
+	}
+
+	public void setReserve(Reserve reserve) {
+		this.reserve = reserve;
+	}
+
+	public String getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+	public String getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+
+}

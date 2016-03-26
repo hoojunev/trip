@@ -1,0 +1,189 @@
+package cn.itcast.nsfw.complain.action;
+
+import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.time.DateUtils;
+import org.apache.struts2.ServletActionContext;
+
+import cn.itcast.core.action.BaseAction;
+import cn.itcast.core.util.QueryHelper;
+import cn.itcast.nsfw.complain.entity.Complain;
+import cn.itcast.nsfw.complain.entity.ComplainReply;
+import cn.itcast.nsfw.complain.service.ComplainService;
+
+import com.opensymphony.xwork2.ActionContext;
+
+public class ComplainAction extends BaseAction {
+	
+	@Resource
+	private ComplainService complainService;
+	private Complain complain;
+	private ComplainReply reply;
+
+	private String strTitle;
+	private String strState;
+	private String startTime;
+	private String endTime;
+	
+	//保存年度月份中对于的投诉数数据
+	private Map<String, Object> statisticMap;
+	//跳转到列表
+	public String listUI(){
+		//加载投诉状态集合
+		ActionContext.getContext().getContextMap().put("complainStateMap", Complain.COMPLAIN_STATE_MAP);
+		try {
+			QueryHelper queryHelper = new QueryHelper(Complain.class, "");
+			
+			if(StringUtils.isNotBlank(startTime)){//查询投诉数据在开始时间之后
+				startTime = decodeStr(startTime);
+				queryHelper.addCondition("compTime >= ?", DateUtils.parseDate(startTime + ":00", "yyyy-MM-dd HH:mm:ss"));
+			}
+			if(StringUtils.isNotBlank(endTime)){//查询投诉数据在结束时间之前
+				endTime = decodeStr(endTime);
+				queryHelper.addCondition("compTime <= ?", DateUtils.parseDate(endTime + ":59", "yyyy-MM-dd HH:mm:ss"));
+			}
+			if(complain != null){
+				
+				if(StringUtils.isNotBlank(complain.getState())){
+					queryHelper.addCondition("state = ?", complain.getState());
+				}
+				
+				if(StringUtils.isNotBlank(complain.getCompTitle())){
+					complain.setCompTitle(decodeStr(complain.getCompTitle()));
+					queryHelper.addCondition("compTitle like ?", "%" + complain.getCompTitle() + "%");
+				}
+			}
+			
+			//根据状态升序排序
+			queryHelper.addOrderByProperty("state", QueryHelper.ORDER_BY_ASC);
+			//根据投诉时间升序排序
+			queryHelper.addOrderByProperty("compTime", QueryHelper.ORDER_BY_ASC);
+			
+			pageResult = complainService.getPageResult(queryHelper, getPageNo(), getPageSize());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return "listUI";
+	}
+	
+	//跳转到受理页面
+	public String dealUI(){
+		//加载投诉状态集合
+		ActionContext.getContext().getContextMap().put("complainStateMap", Complain.COMPLAIN_STATE_MAP);
+
+		if(complain != null){
+			strTitle = complain.getCompTitle();
+			strState = complain.getState();
+			complain = complainService.findObjectById(complain.getCompId());
+		}
+		return "dealUI";
+	}
+	
+	//受理投诉信息
+	public String deal(){
+		if(complain != null && reply != null){
+			Complain tmp = complainService.findObjectById(complain.getCompId());
+			
+			//1、保存投诉受理信息
+			reply.setComplain(tmp);
+			reply.setReplyTime(new Timestamp(new Date().getTime()));
+			tmp.getComplainReplies().add(reply);
+			
+			//2、更新投诉的状态为 已受理
+			if(Complain.COMPLAIN_STATE_UNDONE.equals(tmp.getState())){//当投诉的状态为待受理的时候才需要更新投诉的状态为 已受理
+				tmp.setState(Complain.COMPLAIN_STATE_DONE);
+			}
+			complainService.update(tmp);
+		}
+		return "list";
+	}
+	
+	//跳转到统计页面
+	public String annualStatisticChartUI(){
+		return "annualStatisticChartUI";
+	}
+	
+	//根据年度或该年度下的每个月对应的投诉数并返回json格式字符串
+	public String getAnnualStatisticData(){
+		//1、获取年份
+		int year = Calendar.getInstance().get(Calendar.YEAR);//默认当前年份
+		
+		HttpServletRequest request = ServletActionContext.getRequest();
+		if(request.getParameter("year") != null){
+			year = Integer.parseInt(request.getParameter("year"));
+		}
+		
+		//2、获取该年份每月对应的投诉数列表
+		List<Map<String,Object>> list = complainService.getAnnualStatisticDataByYear(year);
+		
+		statisticMap = new HashMap<String, Object>();
+		statisticMap.put("msg", "success");
+		statisticMap.put("chartData", list);
+		
+		//3、输出并转换为json格式字符串
+		return "chartStatisticData";
+	}
+
+	public Complain getComplain() {
+		return complain;
+	}
+
+	public void setComplain(Complain complain) {
+		this.complain = complain;
+	}
+
+	public String getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+	public String getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+
+	public ComplainReply getReply() {
+		return reply;
+	}
+
+	public void setReply(ComplainReply reply) {
+		this.reply = reply;
+	}
+
+	public String getStrTitle() {
+		return strTitle;
+	}
+
+	public void setStrTitle(String strTitle) {
+		this.strTitle = strTitle;
+	}
+
+	public String getStrState() {
+		return strState;
+	}
+
+	public void setStrState(String strState) {
+		this.strState = strState;
+	}
+
+	public Map<String, Object> getStatisticMap() {
+		return statisticMap;
+	}
+	
+}

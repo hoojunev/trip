@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd 
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd 
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+    
+    <!-- 业务dao -->
+    <bean id="complainDao" class="cn.itcast.nsfw.complain.dao.impl.ComplainDaoImpl" parent="baseDao">
+    </bean>
+    
+    <!-- 扫描所有业务层bean -->
+    <context:component-scan base-package="cn.itcast.nsfw.complain.service.impl"></context:component-scan>
+    
+    <!-- 1、制定任务详细信息 -->
+    <bean id="complainJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    	<!-- 执行对象 -->
+    	<property name="targetObject" ref="complainService"></property>
+    	<!-- 执行对象中对应的方法 -->
+    	<property name="targetMethod" value="autoDeal"></property>
+    	<!-- 是否可并发；不并发 -->
+    	<property name="concurrent" value="false"></property>
+    </bean>
+    <!-- 2、制定任务调度触发器 -->
+    <bean id="complainTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+    	<!-- 设置任务详细信息 -->
+    	<property name="jobDetail" ref="complainJobDetail"></property>
+    	<!-- 执行时机：0 0 22 L * ?，每月的最后一天的22时0分0秒 -->
+    	<property name="cronExpression" value="0 0 22 L * ?"></property>
+    </bean>
+    <!-- 3、设置任务触发器调度工厂 -->
+    <bean id="complainSchedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    	<property name="triggers">
+    		<list>
+    			<ref bean="complainTrigger"/>
+    		</list>
+    	</property>
+    </bean>
+</beans>

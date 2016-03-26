@@ -1,0 +1,13 @@
+package cn.itcast.nsfw.reserve.action;
+
+import cn.itcast.core.action.BaseAction;
+
+public class ReserveAction extends BaseAction {
+
+	//显示预约列表
+	public String listUI(){
+		
+		return "listUI";
+	}
+	
+}

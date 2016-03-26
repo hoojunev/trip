@@ -1,0 +1,81 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <%@include file="/common/header.jsp"%>
+    <title>服务预约管理</title>
+    <script type="text/javascript" src="${basePath }js/datepicker/WdatePicker.js"></script>
+    <script type="text/javascript">
+    var list_url = "${basePath}nsfw/reserve_listUI.action";
+    //搜索
+    function doSearch(){
+    	document.forms[0].action = list_url;
+  		document.forms[0].submit();
+    }
+    
+    //跳转到处理页面
+    function doDeal(id){
+    	document.forms[0].action="${basePath}nsfw/reserve_dealUI.action?reserve.reserveId=" + id;
+    	document.forms[0].submit();
+    }
+    
+    </script>
+    
+</head>
+<body class="rightBody">
+<form name="form1" action="" method="post">
+    <div class="p_d_1">
+        <div class="p_d_1_1">
+            <div class="content_info">
+                <div class="c_crumbs"><div><b></b><strong>服务预约管理</strong></div> </div>
+                <div class="search_art">
+                    <li>
+                       	预约编号：<s:textfield name="reserve.no" cssClass="s_text"  cssStyle="width:160px;"/>
+                    </li>
+                    <li>
+                       	预约时间：<s:textfield id="startTime" name="startTime" cssClass="s_text"  cssStyle="width:160px;" readonly="true" onfocus="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd HH:mm'})"/>
+                              - 
+                             <s:textfield id="endTime" name="endTime" cssClass="s_text"  cssStyle="width:160px;" readonly="true" onfocus="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd HH:mm'})"/>
+                    </li>
+                    <li>
+                       	状态：<s:select name="reserve.state" list="#reserveStateMap" headerKey="" headerValue="全部"/>
+                    </li>
+                    <li><input type="button" class="s_button" value="搜 索" onclick="doSearch()"/></li>
+                    <li style="float:right;"></li>
+                </div>
+
+                <div class="t_list" style="margin:0px; border:0px none;">
+                    <table width="100%" border="0">
+                        <tr class="t_tit">
+                            <td align="center">预约编号</td>
+                            <td width="120" align="center">预约事项</td>
+                            <td width="120" align="center">预约地点</td>
+                            <td width="140" align="center">预约时间</td>
+                            <td width="100" align="center">预约人姓名</td>
+                            <td width="100" align="center">状态</td>
+							<td width="100" align="center">操作</td>
+                        </tr>
+                       <%-- <s:iterator value="pageResult.items" status="st"> --%>
+                            <tr <s:if test="#st.odd"> bgcolor="#f8f8f8" </s:if> >
+                                <td align="center"><s:property value="reserveNo"/></td>
+                                <td align="center"><s:property value="item.itemName"/></td>
+                                <td align="center"><s:property value="reservePlace"/></td>
+                                <td align="center"><s:date name="reserveTime" format="yyyy-MM-dd HH:mm"/></td>
+                                <td align="center"><s:property value="name"/></td>
+								<td align="center"><s:property value="#reserveStateMap[result]"/></td>
+                                <td align="center">
+                                    <a href="javascript:doDeal('<s:property value='reserveId'/>')">处理</a>
+                                </td>
+                            </tr>
+                        <%-- </s:iterator> --%>
+                    </table>
+                </div>
+            </div>
+
+       <jsp:include page="/common/pageNavigator.jsp"></jsp:include>
+
+        </div>
+    </div>
+</form>
+
+</body>
+</html>
