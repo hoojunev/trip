@@ -55,26 +55,26 @@ ol,ul,li {
 .content_info{border:1px solid #ebeaea; width:742px; height:667px; }
 .content_info .c_crumbs{ height: 35px; line-height:35px; position:relative; border-bottom:1px solid #bccfe2;}
 .content_info .c_crumbs div{ position:relative; height:35px; padding-left:40px;  border-bottom:1px solid #64c864; display:inline-block;}
-.content_info .c_crumbs b{ width:20px; height:20px; display:block; position:absolute; top:8px; left:10px; background:url(../images/nsfw/e_icon.png) -72px 0px no-repeat;}
-.content_info .c_crumbs .sear{ position:absolute; right:20px; top:6px; width:20px; height:20px; border:0px none; background:url(../images/nsfw/e_icon.png) 0px -26px no-repeat; cursor:pointer;}
+.content_info .c_crumbs b{ width:20px; height:20px; display:block; position:absolute; top:8px; left:10px; background:url(../images/travel/e_icon.png) -72px 0px no-repeat;}
+.content_info .c_crumbs .sear{ position:absolute; right:20px; top:6px; width:20px; height:20px; border:0px none; background:url(../images/travel/e_icon.png) 0px -26px no-repeat; cursor:pointer;}
 .content_info .search_art{ padding:5px 10px; height:22px; border-top:1px solid #e3e3e3; border-bottom:1px solid #e3e3e3; background-color:#fafafa; line-height:22px;}
 .content_info .search_art li{ float:left; padding:0px 5px;}
 .content_info .search_art .s_text{ border:1px solid #c7c7c7; height:20px; width:120px;}
-.content_info .search_art .s_button{ background:url(../images/nsfw/e_icon.png) -48px -27px no-repeat; width: 50px; height:24px; border:0px none; color:#fff;}
+.content_info .search_art .s_button{ background:url(../images/travel/e_icon.png) -48px -27px no-repeat; width: 50px; height:24px; border:0px none; color:#fff;}
 .content_info .search_art .s_sele{border:1px solid #c7c7c7; width:120px;}
 
 
 .p_d_1_1 .content_info{width:955px; height:auto; border:0px none; background-color:transparent;}
 .p_d_1_1 .content_info .c_crumbs{ height: 35px; font-size:14px; line-height:35px;position:relative; border-bottom:2px solid #bccfe2;}
 .p_d_1_1 .content_info .c_crumbs div{ position:relative; height:35px; padding-left:40px;  border-bottom:2px solid #62adfe; display:inline-block;}
-.p_d_1_1 .content_info .c_crumbs b{ width:20px; height:20px; display:block; position:absolute; top:8px; left:10px; background:url(../images/nsfw/e_icon.png) -72px 0px no-repeat;}
-.p_d_1_1 .content_info .c_crumbs .sear{ position:absolute; right:20px; top:6px; width:20px; height:20px; border:0px none; background:url(../images/nsfw/e_icon.png) 0px -26px no-repeat; cursor:pointer;}
+.p_d_1_1 .content_info .c_crumbs b{ width:20px; height:20px; display:block; position:absolute; top:8px; left:10px; background:url(../images/travel/e_icon.png) -72px 0px no-repeat;}
+.p_d_1_1 .content_info .c_crumbs .sear{ position:absolute; right:20px; top:6px; width:20px; height:20px; border:0px none; background:url(../images/travel/e_icon.png) 0px -26px no-repeat; cursor:pointer;}
 .p_d_1_1 .content_info .search_art{ padding:5px 10px; height:22px; border:1px solid #dbeafa; margin:5px 0px 10px 0px; background-color:#f0f7fe; line-height:22px;}
 .p_d_1_1 .content_info .search_art li{ float:left; padding:0px 5px;}
 .p_d_1_1 .content_info .search_art .s_text{ border:1px solid #c7c7c7; height:20px; width:120px;}
-.p_d_1_1 .content_info .search_art .s_button{cursor:pointer; background:url(../images/nsfw/e_icon.png) -48px -27px no-repeat; width: 50px; height:24px; border:0px none; color:#fff;}
+.p_d_1_1 .content_info .search_art .s_button{cursor:pointer; background:url(../images/travel/e_icon.png) -48px -27px no-repeat; width: 50px; height:24px; border:0px none; color:#fff;}
 .p_d_1_1 .content_info .search_art .s_sele{border:1px solid #c7c7c7; width:120px;}
-.p_d_1_1 .content_info .search_art .s_excel{ background:url(../images/nsfw/xzfwpt_bg.png) 0px -492px no-repeat; width: 71px; height:24px; border:0px none; color:#fff; cursor:pointer;}
+.p_d_1_1 .content_info .search_art .s_excel{ background:url(../images/travel/xzfwpt_bg.png) 0px -492px no-repeat; width: 71px; height:24px; border:0px none; color:#fff; cursor:pointer;}
 
 .t_list{text-align:center;}
 .t_list table tr td{ padding:0px 4px;border:1px solid #dbeafa; height:35px; color:#666;}
@@ -90,7 +90,7 @@ ol,ul,li {
 
 .c_crumbs{font-size:14px;height: 35px; line-height:35px; position:relative;margin-top:8px;margin-left:6px; border-bottom:2px solid #bccfe2;}
 .c_crumbs div{ position:relative; height:35px; padding-left:40px;font-size:14px;  border-bottom:2px solid #62adfe; display:inline-block;}
-.c_crumbs b{ width:20px; height:20px; display:block; position:absolute; top:8px; left:10px; background:url(../images/nsfw/e_icon.png) -72px 0px no-repeat;}
+.c_crumbs b{ width:20px; height:20px; display:block; position:absolute; top:8px; left:10px; background:url(../images/travel/e_icon.png) -72px 0px no-repeat;}
 
 .tableH2{font-weight:bold; font-size:18px;  text-align:center; line-height:220%;}/*---居中标题--*/
 
@@ -170,14 +170,14 @@ ol,ul,li {
 .vp_d_1_1 .content_info{width:100%; height:auto; border:0px none; background-color:transparent;}
 .vp_d_1_1 .content_info .c_crumbs{ height: 35px; font-size:14px; line-height:35px;position:relative; border-bottom:2px solid #bccfe2;}
 .vp_d_1_1 .content_info .c_crumbs div{ position:relative; height:35px; padding-left:40px;  border-bottom:2px solid #62adfe; display:inline-block;}
-.vp_d_1_1 .content_info .c_crumbs b{ width:20px; height:20px; display:block; position:absolute; top:8px; left:10px; background:url(../images/nsfw/e_icon.png) -72px 0px no-repeat;}
-.vp_d_1_1 .content_info .c_crumbs .sear{ position:absolute; right:20px; top:6px; width:20px; height:20px; border:0px none; background:url(../images/nsfw/e_icon.png) 0px -26px no-repeat; cursor:pointer;}
+.vp_d_1_1 .content_info .c_crumbs b{ width:20px; height:20px; display:block; position:absolute; top:8px; left:10px; background:url(../images/travel/e_icon.png) -72px 0px no-repeat;}
+.vp_d_1_1 .content_info .c_crumbs .sear{ position:absolute; right:20px; top:6px; width:20px; height:20px; border:0px none; background:url(../images/travel/e_icon.png) 0px -26px no-repeat; cursor:pointer;}
 .vp_d_1_1 .content_info .search_art{ padding:5px 10px; height:22px; border:1px solid #dbeafa; margin:5px 0px 10px 0px; background-color:#f0f7fe; line-height:22px;}
 .vp_d_1_1 .content_info .search_art li{ float:left; padding:0px 5px;}
 .vp_d_1_1 .content_info .search_art .s_text{ border:1px solid #c7c7c7; height:20px; width:120px;}
-.vp_d_1_1 .content_info .search_art .s_button{cursor:pointer; background:url(../images/nsfw/e_icon.png) -48px -27px no-repeat; width: 50px; height:24px; border:0px none; color:#fff;}
+.vp_d_1_1 .content_info .search_art .s_button{cursor:pointer; background:url(../images/travel/e_icon.png) -48px -27px no-repeat; width: 50px; height:24px; border:0px none; color:#fff;}
 .vp_d_1_1 .content_info .search_art .s_sele{border:1px solid #c7c7c7; width:120px;}
-.vp_d_1_1 .content_info .search_art .s_excel{ background:url(../images/nsfw/xzfwpt_bg.png) 0px -492px no-repeat; width: 71px; height:24px; border:0px none; color:#fff; cursor:pointer;}
+.vp_d_1_1 .content_info .search_art .s_excel{ background:url(../images/travel/xzfwpt_bg.png) 0px -492px no-repeat; width: 71px; height:24px; border:0px none; color:#fff; cursor:pointer;}
 
 
 

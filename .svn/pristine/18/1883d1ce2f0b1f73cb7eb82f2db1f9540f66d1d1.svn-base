@@ -1,8 +1,8 @@
-package cn.itcast.test.service;
+package cn.project.test.service;
 
 import java.io.Serializable;
 
-import cn.itcast.test.entity.Person;
+import cn.project.test.entity.Person;
 
 public interface TestService {
 

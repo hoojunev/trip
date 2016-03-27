@@ -1,5 +1,5 @@
 /**
-*Author:itcast
+*Author:project
 *Date:2016-01-20
 *Desc:创建人员组织机构数据库表 数据库已经导入
 */
@@ -136,7 +136,7 @@ alter table t_role_pri add constraint FK_own foreign key (pri_id)
 
 
 /**
-*Author:itcast
+*Author:project
 *Date:2016-01-23
 *Desc:创建投诉受理数据库表
 */
@@ -183,7 +183,7 @@ alter table complain_reply add constraint FK_comp_reply foreign key (comp_id)
       references complain (comp_id) on delete restrict on update restrict;
 
 /**
-*Author:itcast
+*Author:project
 *Date:2016-01-26
 *Desc:创建月份数据库表
 */
@@ -194,7 +194,7 @@ CREATE TABLE `tmonth` (
 
 
 /**
-*Author:itcast
+*Author:project
 *Date:2016-01-27
 *Desc:创建事项表和预约服务表
 */

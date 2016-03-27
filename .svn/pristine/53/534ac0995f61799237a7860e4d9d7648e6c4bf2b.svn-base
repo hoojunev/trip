@@ -53,7 +53,7 @@ ol,ul,li {
 
 /* 导航 */
 .banner{width:1222px; height:51px; margin: 0 auto; background:#FFF; position:relative;}
-.menu{  width:1222px; height:51px; margin: 0 auto; background:url(../../images/nsfw/banner_bg.png) no-repeat; padding:0px; position: absolute;bottom: 3px;
+.menu{  width:1222px; height:51px; margin: 0 auto; background:url(../../images/travel/banner_bg.png) no-repeat; padding:0px; position: absolute;bottom: 3px;
 	right: 0px;
 	 z-index:9999}
 .menu_mz{
@@ -62,15 +62,15 @@ ol,ul,li {
 	right: -72px;
 	width: 162px;
 	height: 132px;
-	background: url(../../images/nsfw/bosimao.png) no-repeat;
+	background: url(../../images/travel/bosimao.png) no-repeat;
 }
 .menu ul{ width:1222px; margin:0px; padding:0px;}
-.menu li{ position:relative; float:left; width:150px; margin:0px;  height:51px; text-align:center;  color:#fff !important; background:url(../../images/nsfw/banner_xt.jpg) no-repeat right 4px;  font-weight: bold; font:16px/51px \5fae\8f6f\96c5\9ed1;  font-weight:700;  }
+.menu li{ position:relative; float:left; width:150px; margin:0px;  height:51px; text-align:center;  color:#fff !important; background:url(../../images/travel/banner_xt.jpg) no-repeat right 4px;  font-weight: bold; font:16px/51px \5fae\8f6f\96c5\9ed1;  font-weight:700;  }
 .menu li a { color:#fff; margin:5px 0px; height:51px; font-size:16px; text-decoration:none;}
-.menu li b{ position: absolute; background:url(../../images/nsfw/banner_hover.png) no-repeat left top; left:0px; top: 0px; width:150px; height:51px; z-index:-1; font-weight: bold !important; color:#1375b2;
+.menu li b{ position: absolute; background:url(../../images/travel/banner_hover.png) no-repeat left top; left:0px; top: 0px; width:150px; height:51px; z-index:-1; font-weight: bold !important; color:#1375b2;
 	}
-.menu li a:hover{ background:url(../../images/nsfw/banner_hover.png) no-repeat left top; margin:0px !important; width:150px; height:51px; display:inline-block; color:#1375b2 !important;}
-.menu li.hover{ background:url(../../images/nsfw/banner_hover.png) no-repeat left top;  margin:0px; border:0px; width:150px; height:51px; display:inline-block; font-weight: bold !important; color:#1375b2;}
+.menu li a:hover{ background:url(../../images/travel/banner_hover.png) no-repeat left top; margin:0px !important; width:150px; height:51px; display:inline-block; color:#1375b2 !important;}
+.menu li.hover{ background:url(../../images/travel/banner_hover.png) no-repeat left top;  margin:0px; border:0px; width:150px; height:51px; display:inline-block; font-weight: bold !important; color:#1375b2;}
 .menu li.hover a{ color:#1375b2 !important; font-size:16px; font-weight: bold !important; font:16px/51px \5fae\8f6f\96c5\9ed1;}
 .menu li.hover a:hover{ color:#1375b2 !important; }
 .menu_date{ float:right  !important; font:13px/43px \5fae\8f6f\96c5\9ed1 !important; color:#fff; margin:0px !important; background: none !important; font-weight:normal !important; width:146px !important; padding-right:5px; }
@@ -78,23 +78,23 @@ ol,ul,li {
 .top a:hover{ font-size:12px; color:#1f1f1f;}
 
 .content {
-	background:url(../../images/nsfw/xsxs_bg.png) #FFF center bottom no-repeat;
+	background:url(../../images/travel/xsxs_bg.png) #FFF center bottom no-repeat;
     height:694px;
     margin: 0 auto;
     padding: 8px 1px;
     width: 1220px;
 }
-.left_lm{ background:url(../../images/nsfw/left_bj.png) no-repeat; width:203px; height:671px; margin:0 8px 0px 13px; float:left;}
-.left_bt{ background:url(../../images/nsfw/1.png) no-repeat; margin-left:26px; margin-top:18px; padding-left:38px;  font:18px/30px \5fae\8f6f\96c5\9ed1; color:#1e4851; font-weight: bold !important;}
+.left_lm{ background:url(../../images/travel/left_bj.png) no-repeat; width:203px; height:671px; margin:0 8px 0px 13px; float:left;}
+.left_bt{ background:url(../../images/travel/1.png) no-repeat; margin-left:26px; margin-top:18px; padding-left:38px;  font:18px/30px \5fae\8f6f\96c5\9ed1; color:#1e4851; font-weight: bold !important;}
 .left_lmlb{ width:161px; margin-left:25px; padding:0px; }
 .left_lmlb ul{ margin-top:30px; padding:0px; margin-left:0px;}
-.left_lmlb ul li{ background:url(../../images/nsfw/xslm_bg01.png) no-repeat; width:161px; height:33px; margin:0px; padding-bottom:15px; font:14px/33px \5fae\8f6f\96c5\9ed1; color:#515151; position:relative;}
+.left_lmlb ul li{ background:url(../../images/travel/xslm_bg01.png) no-repeat; width:161px; height:33px; margin:0px; padding-bottom:15px; font:14px/33px \5fae\8f6f\96c5\9ed1; color:#515151; position:relative;}
 .left_lmlb ul li a{ font:14px/33px \5fae\8f6f\96c5\9ed1; padding-left:40px; margin:0px; width:121px; display:block; color:#515151;}
 .left_lmlb ul li b{
 	position: absolute;
 	width: 20px;
 	height: 20px;
-	background: url(../../images/nsfw/icoBG.png) no-repeat;
+	background: url(../../images/travel/icoBG.png) no-repeat;
 	left:15px;
 	top: 6px;
 }
@@ -128,8 +128,8 @@ ol,ul,li {
 .left_lmlb ul li:hover b.ksjfbz { background-position:-32px -82px;}
 .left_lmlb ul li b.jftxbb{ background-position: 0px -126px;}
 .left_lmlb ul li:hover b.jftxbb { background-position:-32px -126px;}
-.left_lmlb ul li a:hover{ background:url(../../images/nsfw/xslm_bg02.png) no-repeat;  width:161px;  height:33px; margin:0px; display:inline-block; font:14px/33px \5fae\8f6f\96c5\9ed1; color:#009f00;}
-.left_lmlb ul li.hover{ background:url(../../images/nsfw/xslm_bg02.png) no-repeat; width:161px; height:33px; font:14px/30px \5fae\8f6f\96c5\9ed1; color:#009f00;}
+.left_lmlb ul li a:hover{ background:url(../../images/travel/xslm_bg02.png) no-repeat;  width:161px;  height:33px; margin:0px; display:inline-block; font:14px/33px \5fae\8f6f\96c5\9ed1; color:#009f00;}
+.left_lmlb ul li.hover{ background:url(../../images/travel/xslm_bg02.png) no-repeat; width:161px; height:33px; font:14px/30px \5fae\8f6f\96c5\9ed1; color:#009f00;}
 
 /* 尾部 */
 .foot{ width:1220px; height: 30px; padding-top:14px; margin: 0px auto; text-align:center; font-size:12px; color:#1e6cae;}

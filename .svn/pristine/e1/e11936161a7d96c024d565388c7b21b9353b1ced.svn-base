@@ -1,8 +1,8 @@
-package cn.itcast.test.action;
+package cn.project.test.action;
 
 import javax.annotation.Resource;
 
-import cn.itcast.test.service.TestService;
+import cn.project.test.service.TestService;
 
 import com.opensymphony.xwork2.ActionSupport;
 

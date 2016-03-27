@@ -5,9 +5,9 @@
 
 <struts>
 	
-	<package name="reserveItemAction" namespace="/nsfw" extends="json-default,base-default">
-		<action name="reserveItem_*" class="cn.itcast.nsfw.item.action.ItemAction" method="{1}">
-			<result name="{1}">/WEB-INF/jsp/nsfw/reserveItem/{1}.jsp</result>
+	<package name="reserveItemAction" namespace="/travel" extends="json-default,base-default">
+		<action name="reserveItem_*" class="cn.project.travel.item.action.ItemAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/travel/reserveItem/{1}.jsp</result>
 			<result name="list" type="redirectAction">
 				<param name="actionName">reserveItem_listUI</param>
 				<param name="item.itemName">${strItemTitle}</param>

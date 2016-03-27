@@ -1,4 +1,4 @@
-package cn.itcast.test;
+package cn.project.test;
 
 import static org.junit.Assert.*;
 

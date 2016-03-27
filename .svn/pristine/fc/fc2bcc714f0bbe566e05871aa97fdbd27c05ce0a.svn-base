@@ -16,5 +16,5 @@ sessionFactoryId=
 basePersistenceClass=
 genAnnotations=false
 reSettingsFile=
-configFile=/_itcastTax/src/hibernate.cfg.xml
+configFile=/_projectTax/src/hibernate.cfg.xml
 createConfigFile=true

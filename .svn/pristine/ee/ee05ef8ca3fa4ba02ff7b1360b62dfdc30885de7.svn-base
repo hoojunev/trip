@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="cn.itcast.nsfw.role.entity.Role" table="role">
+	<class name="cn.project.travel.role.entity.Role" table="role">
 		<id name="roleId" type="java.lang.String">
 			<column name="role_id" length="32" />
 			<generator class="uuid.hex" />
@@ -18,7 +18,7 @@
 			<key>
 				<column name="role_id" length="32"></column>
 			</key>
-			<one-to-many class="cn.itcast.nsfw.role.entity.RolePrivilege"/>
+			<one-to-many class="cn.project.travel.role.entity.RolePrivilege"/>
 		</set>
 		
 	</class>

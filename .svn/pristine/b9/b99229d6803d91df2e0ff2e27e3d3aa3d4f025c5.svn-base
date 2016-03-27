@@ -1,4 +1,4 @@
-package cn.itcast.nsfw.role.action;
+package cn.project.travel.role.action;
 
 import java.net.URLDecoder;
 import java.util.HashSet;
@@ -8,14 +8,14 @@ import javax.annotation.Resource;
 
 import org.apache.commons.lang.StringUtils;
 
-import cn.itcast.core.action.BaseAction;
-import cn.itcast.core.exception.ActionException;
-import cn.itcast.core.util.Constant;
-import cn.itcast.core.util.QueryHelper;
-import cn.itcast.nsfw.role.entity.Role;
-import cn.itcast.nsfw.role.entity.RolePrivilege;
-import cn.itcast.nsfw.role.entity.RolePrivilegeId;
-import cn.itcast.nsfw.role.service.RoleService;
+import cn.project.core.action.BaseAction;
+import cn.project.core.exception.ActionException;
+import cn.project.core.util.Constant;
+import cn.project.core.util.QueryHelper;
+import cn.project.travel.role.entity.Role;
+import cn.project.travel.role.entity.RolePrivilege;
+import cn.project.travel.role.entity.RolePrivilegeId;
+import cn.project.travel.role.service.RoleService;
 
 import com.opensymphony.xwork2.ActionContext;
 

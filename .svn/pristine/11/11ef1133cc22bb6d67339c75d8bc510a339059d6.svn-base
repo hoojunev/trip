@@ -18,7 +18,7 @@
 	<package name="base-default" namespace="/" extends="struts-default">
 		<!-- 制定返回结果类型 -->
 		<result-types>
-			<result-type name="sys-error" class="cn.itcast.core.action.SysResultAction"></result-type>
+			<result-type name="sys-error" class="cn.project.core.action.SysResultAction"></result-type>
 		</result-types>
 		<!-- 制定返回结果 -->
 		<global-results>
@@ -28,27 +28,27 @@
 		</global-results>
 		<!-- 制定全局异常映射 -->
 		<global-exception-mappings>
-			<exception-mapping result="sysError" exception="cn.itcast.core.exception.SysException"></exception-mapping>
-			<exception-mapping result="input" exception="cn.itcast.core.exception.Exception"></exception-mapping>
+			<exception-mapping result="sysError" exception="cn.project.core.exception.SysException"></exception-mapping>
+			<exception-mapping result="input" exception="cn.project.core.exception.Exception"></exception-mapping>
 		</global-exception-mappings>
 	</package>
 	
 	<!-- 包含test的struts配置文件 -->
-	<include file="cn/itcast/test/conf/test-struts.xml"></include>
+	<include file="cn/project/test/conf/test-struts.xml"></include>
 	<!-- 包含用户管理的struts配置文件 -->
-	<include file="cn/itcast/nsfw/user/conf/user-struts.xml"></include>
+	<include file="cn/project/travel/user/conf/user-struts.xml"></include>
 	<!-- 包含角色管理的struts配置文件 -->
-	<include file="cn/itcast/nsfw/role/conf/role-struts.xml"></include>
+	<include file="cn/project/travel/role/conf/role-struts.xml"></include>
 	<!-- 包含系统首页的struts配置文件 -->
-	<include file="cn/itcast/home/conf/home-struts.xml"></include>
+	<include file="cn/project/home/conf/home-struts.xml"></include>
 	<!-- 包含纳税服务系统首页的struts配置文件 -->
-	<include file="cn/itcast/nsfw/home/conf/home-struts.xml"></include>
+	<include file="cn/project/travel/home/conf/home-struts.xml"></include>
 	<!-- 包含登录的struts配置文件 -->
-	<include file="cn/itcast/login/conf/login-struts.xml"></include>
+	<include file="cn/project/login/conf/login-struts.xml"></include>
 	<!-- 包含信息发布管理的struts配置文件 -->
-	<include file="cn/itcast/nsfw/info/conf/info-struts.xml"></include>
+	<include file="cn/project/travel/info/conf/info-struts.xml"></include>
 	<!-- 包含投诉受理管理的struts配置文件 -->
-	<include file="cn/itcast/nsfw/complain/conf/complain-struts.xml"></include>
+	<include file="cn/project/travel/complain/conf/complain-struts.xml"></include>
 	<!-- 包含服务预约管理的struts配置文件 -->
-	<include file="cn/itcast/nsfw/reserve/conf/reserve-struts.xml"></include>
+	<include file="cn/project/travel/reserve/conf/reserve-struts.xml"></include>
 </struts>

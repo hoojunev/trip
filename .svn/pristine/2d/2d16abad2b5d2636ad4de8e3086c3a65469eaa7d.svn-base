@@ -1,15 +1,15 @@
-package cn.itcast.nsfw.reserve.action;
+package cn.project.travel.reserve.action;
 
 import javax.annotation.Resource;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 
-import cn.itcast.core.action.BaseAction;
-import cn.itcast.core.util.QueryHelper;
-import cn.itcast.nsfw.reserve.entity.Item;
-import cn.itcast.nsfw.reserve.entity.Reserve;
-import cn.itcast.nsfw.reserve.service.ReserveService;
+import cn.project.core.action.BaseAction;
+import cn.project.core.util.QueryHelper;
+import cn.project.travel.reserve.entity.Item;
+import cn.project.travel.reserve.entity.Reserve;
+import cn.project.travel.reserve.service.ReserveService;
 
 import com.opensymphony.xwork2.ActionContext;
 

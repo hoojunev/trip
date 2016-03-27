@@ -1,9 +1,9 @@
-package cn.itcast.core.action;
+package cn.project.core.action;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
-import cn.itcast.core.util.PageResult;
+import cn.project.core.util.PageResult;
 
 import com.opensymphony.xwork2.ActionSupport;
 

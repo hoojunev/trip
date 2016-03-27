@@ -1,4 +1,4 @@
-package cn.itcast.nsfw.reserve.entity;
+package cn.project.travel.reserve.entity;
 
 import java.util.HashSet;
 import java.util.Set;

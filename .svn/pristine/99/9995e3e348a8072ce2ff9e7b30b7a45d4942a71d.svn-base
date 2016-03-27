@@ -1,7 +1,7 @@
-package cn.itcast.nsfw.role.dao;
+package cn.project.travel.role.dao;
 
-import cn.itcast.core.dao.BaseDao;
-import cn.itcast.nsfw.role.entity.Role;
+import cn.project.core.dao.BaseDao;
+import cn.project.travel.role.entity.Role;
 
 public interface RoleDao extends BaseDao<Role>{
 

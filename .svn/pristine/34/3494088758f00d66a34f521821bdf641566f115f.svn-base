@@ -1,4 +1,4 @@
-package cn.itcast.login.action;
+package cn.project.login.action;
 
 import java.util.List;
 
@@ -9,9 +9,9 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.ServletActionContext;
 
-import cn.itcast.core.util.Constant;
-import cn.itcast.nsfw.user.entity.User;
-import cn.itcast.nsfw.user.service.UserService;
+import cn.project.core.util.Constant;
+import cn.project.travel.user.entity.User;
+import cn.project.travel.user.service.UserService;
 
 import com.opensymphony.xwork2.ActionSupport;
 

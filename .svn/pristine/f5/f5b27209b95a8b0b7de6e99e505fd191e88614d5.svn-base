@@ -1,8 +1,8 @@
-package cn.itcast.nsfw.user.entity;
+package cn.project.travel.user.entity;
 
 import java.io.Serializable;
 
-import cn.itcast.nsfw.role.entity.Role;
+import cn.project.travel.role.entity.Role;
 
 public class UserRoleId implements Serializable {
 

@@ -1,11 +1,11 @@
-package cn.itcast.test.dao.impl;
+package cn.project.test.dao.impl;
 
 import java.io.Serializable;
 
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
-import cn.itcast.test.dao.TestDao;
-import cn.itcast.test.entity.Person;
+import cn.project.test.dao.TestDao;
+import cn.project.test.entity.Person;
 
 public class TestDaoImpl extends HibernateDaoSupport implements TestDao {
 

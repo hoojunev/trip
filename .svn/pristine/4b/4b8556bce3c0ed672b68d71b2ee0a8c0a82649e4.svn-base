@@ -1,4 +1,4 @@
-package cn.itcast.test;
+package cn.project.test;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -7,8 +7,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cn.itcast.test.entity.Person;
-import cn.itcast.test.service.TestService;
+import cn.project.test.entity.Person;
+import cn.project.test.service.TestService;
 
 public class TestMeger {
 	

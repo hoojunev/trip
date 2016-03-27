@@ -3,9 +3,9 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="cn.itcast.nsfw.user.entity.UserRole" table="user_role">
-		<composite-id name="id" class="cn.itcast.nsfw.user.entity.UserRoleId">
-			<key-many-to-one name="role" lazy="false" class="cn.itcast.nsfw.role.entity.Role">
+	<class name="cn.project.travel.user.entity.UserRole" table="user_role">
+		<composite-id name="id" class="cn.project.travel.user.entity.UserRoleId">
+			<key-many-to-one name="role" lazy="false" class="cn.project.travel.role.entity.Role">
 				<column name="role_id" length="32"></column>
 			</key-many-to-one>
 			<key-property name="userId" type="java.lang.String">

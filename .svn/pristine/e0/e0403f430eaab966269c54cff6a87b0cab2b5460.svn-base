@@ -1,10 +1,10 @@
-package cn.itcast.nsfw.reserve.entity;
+package cn.project.travel.reserve.entity;
 
 import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
 
-import cn.itcast.nsfw.item.entity.Item;
+import cn.project.travel.item.entity.Item;
 
 /**
  * Reserve entity. @author MyEclipse Persistence Tools

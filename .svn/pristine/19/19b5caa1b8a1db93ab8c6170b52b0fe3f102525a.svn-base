@@ -1,4 +1,4 @@
-package cn.itcast.nsfw.user.entity;
+package cn.project.travel.user.entity;
 
 import java.io.Serializable;
 

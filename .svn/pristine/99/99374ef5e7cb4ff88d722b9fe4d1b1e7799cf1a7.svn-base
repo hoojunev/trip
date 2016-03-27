@@ -5,9 +5,9 @@
 
 <struts>
 	
-	<package name="nsfwHomeAction" namespace="/nsfw" extends="base-default">
-		<action name="home_*" class="cn.itcast.nsfw.home.action.HomeAction" method="{1}">
-			<result name="{1}">/WEB-INF/jsp/nsfw/{1}.jsp</result>
+	<package name="travelHomeAction" namespace="/travel" extends="base-default">
+		<action name="home_*" class="cn.project.travel.home.action.HomeAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/travel/{1}.jsp</result>
 		</action>
 	</package>
 </struts>

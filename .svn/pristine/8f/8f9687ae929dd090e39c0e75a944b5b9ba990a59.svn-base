@@ -1,6 +1,6 @@
-package cn.itcast.core.permission;
+package cn.project.core.permission;
 
-import cn.itcast.nsfw.user.entity.User;
+import cn.project.travel.user.entity.User;
 
 public interface PermissionCheck {
 

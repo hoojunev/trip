@@ -1,10 +1,10 @@
-package cn.itcast.nsfw.role.dao.impl;
+package cn.project.travel.role.dao.impl;
 
 import org.hibernate.Query;
 
-import cn.itcast.core.dao.impl.BaseDaoImpl;
-import cn.itcast.nsfw.role.dao.RoleDao;
-import cn.itcast.nsfw.role.entity.Role;
+import cn.project.core.dao.impl.BaseDaoImpl;
+import cn.project.travel.role.dao.RoleDao;
+import cn.project.travel.role.entity.Role;
 
 public class RoleDaoImpl extends BaseDaoImpl<Role> implements RoleDao {
 

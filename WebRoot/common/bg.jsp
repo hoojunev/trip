@@ -4,7 +4,7 @@
   <head>
 	<style type="text/css">
     	body,div {
-		    background: url("${basePath}images/nsfw/xzfwptBg.png") #DBF3FF center top repeat-x;
+		    background: url("${basePath}images/travel/xzfwptBg.png") #DBF3FF center top repeat-x;
 		    background-size: 100% 200px;
 		}
     </style>

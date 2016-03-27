@@ -3,9 +3,9 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="cn.itcast.nsfw.role.entity.RolePrivilege" table="role_privilege">
-		<composite-id name="id" class="cn.itcast.nsfw.role.entity.RolePrivilegeId">
-			<key-many-to-one name="role" class="cn.itcast.nsfw.role.entity.Role">
+	<class name="cn.project.travel.role.entity.RolePrivilege" table="role_privilege">
+		<composite-id name="id" class="cn.project.travel.role.entity.RolePrivilegeId">
+			<key-many-to-one name="role" class="cn.project.travel.role.entity.Role">
 				<column name="role_id" length="32"></column>
 			</key-many-to-one>
 			<key-property name="code" type="java.lang.String">

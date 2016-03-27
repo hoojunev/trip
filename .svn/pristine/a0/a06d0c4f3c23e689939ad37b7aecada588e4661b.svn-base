@@ -5,7 +5,7 @@
     <title>服务预约管理</title>
     <script type="text/javascript" src="${basePath }js/datepicker/WdatePicker.js"></script>
     <script type="text/javascript">
-    var list_url = "${basePath}nsfw/reserve_listUI.action";
+    var list_url = "${basePath}travel/reserve_listUI.action";
     //搜索
     function doSearch(){
     	document.forms[0].action = list_url;
@@ -14,7 +14,7 @@
     
     //跳转到处理页面
     function doDeal(id){
-    	document.forms[0].action="${basePath}nsfw/reserve_dealUI.action?reserve.reserveId=" + id;
+    	document.forms[0].action="${basePath}travel/reserve_dealUI.action?reserve.reserveId=" + id;
     	document.forms[0].submit();
     }
     

@@ -42,8 +42,8 @@
 		</property>
 		<property name="mappingLocations">
 			<list>
-				<value>classpath:cn/itcast/nsfw/*/entity/*.hbm.xml</value>
-				<value>classpath:cn/itcast/test/entity/*.hbm.xml</value>
+				<value>classpath:cn/project/travel/*/entity/*.hbm.xml</value>
+				<value>classpath:cn/project/test/entity/*.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -64,7 +64,7 @@
 	<!-- aop配置哪些类需要切入事务 -->
     <aop:config>
     	<aop:pointcut expression="bean(*Service)" id="serviceOperation"/>
-    	<!-- <aop:pointcut expression="execution(* cn.itcast..service.impl.*.*(..))" id="serviceOperation"/> -->
+    	<!-- <aop:pointcut expression="execution(* cn.project..service.impl.*.*(..))" id="serviceOperation"/> -->
     	<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation"/>
     </aop:config>
     
@@ -74,9 +74,9 @@
     </bean>
     
     <!-- 权限鉴定bean -->
-    <bean id="permissionCheck" class="cn.itcast.core.permission.impl.PermissionCheckImpl"></bean>
+    <bean id="permissionCheck" class="cn.project.core.permission.impl.PermissionCheckImpl"></bean>
     
     <!-- 引入外部的spring配置文件 -->
-    <import resource="classpath:cn/itcast/nsfw/*/conf/*-spring.xml"/>
-    <import resource="classpath:cn/itcast/*/conf/*-spring.xml"/>
+    <import resource="classpath:cn/project/travel/*/conf/*-spring.xml"/>
+    <import resource="classpath:cn/project/*/conf/*-spring.xml"/>
 </beans>

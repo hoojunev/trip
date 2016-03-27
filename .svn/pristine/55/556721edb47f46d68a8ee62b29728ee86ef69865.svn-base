@@ -1,4 +1,4 @@
-package cn.itcast.nsfw.item.action;
+package cn.project.travel.item.action;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,13 +12,13 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.ServletActionContext;
 
-import cn.itcast.core.action.BaseAction;
-import cn.itcast.core.util.Constant;
-import cn.itcast.core.util.QueryHelper;
-import cn.itcast.nsfw.item.entity.Item;
-import cn.itcast.nsfw.item.service.ItemService;
-import cn.itcast.nsfw.user.entity.User;
-import cn.itcast.nsfw.user.service.UserService;
+import cn.project.core.action.BaseAction;
+import cn.project.core.util.Constant;
+import cn.project.core.util.QueryHelper;
+import cn.project.travel.item.entity.Item;
+import cn.project.travel.item.service.ItemService;
+import cn.project.travel.user.entity.User;
+import cn.project.travel.user.service.UserService;
 
 import com.opensymphony.xwork2.ActionContext;
 

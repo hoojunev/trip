@@ -1,8 +1,8 @@
-package cn.itcast.nsfw.reserve.service.impl;
+package cn.project.travel.reserve.service.impl;
 
-import cn.itcast.core.service.impl.BaseServiceImpl;
-import cn.itcast.nsfw.reserve.entity.Reserve;
-import cn.itcast.nsfw.reserve.service.ReserveService;
+import cn.project.core.service.impl.BaseServiceImpl;
+import cn.project.travel.reserve.entity.Reserve;
+import cn.project.travel.reserve.service.ReserveService;
 
 public class ReserveServiceImpl extends BaseServiceImpl<Reserve> implements ReserveService {
 

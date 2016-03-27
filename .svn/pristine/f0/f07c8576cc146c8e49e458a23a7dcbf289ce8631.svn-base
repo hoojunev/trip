@@ -1,4 +1,4 @@
-package cn.itcast.nsfw.role.entity;
+package cn.project.travel.role.entity;
 
 import java.io.Serializable;
 

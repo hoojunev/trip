@@ -1,4 +1,4 @@
-package cn.itcast.nsfw.complain.entity;
+package cn.project.travel.complain.entity;
 
 import java.sql.Timestamp;
 import java.util.HashMap;

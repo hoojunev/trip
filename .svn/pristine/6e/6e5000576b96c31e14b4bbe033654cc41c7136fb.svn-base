@@ -5,9 +5,9 @@
 
 <struts>
 	
-	<package name="complainAction" namespace="/nsfw" extends="json-default,base-default">
-		<action name="complain_*" class="cn.itcast.nsfw.complain.action.ComplainAction" method="{1}">
-			<result name="{1}">/WEB-INF/jsp/nsfw/complain/{1}.jsp</result>
+	<package name="complainAction" namespace="/travel" extends="json-default,base-default">
+		<action name="complain_*" class="cn.project.travel.complain.action.ComplainAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/travel/complain/{1}.jsp</result>
 			<result name="list" type="redirectAction">
 				<param name="actionName">complain_listUI</param>
 				<param name="complain.compTitle">${strTitle}</param>

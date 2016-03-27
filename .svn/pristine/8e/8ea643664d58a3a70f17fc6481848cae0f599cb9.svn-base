@@ -1,4 +1,4 @@
-package cn.itcast.home.action;
+package cn.project.home.action;
 
 import java.io.IOException;
 import java.sql.Timestamp;
@@ -16,14 +16,14 @@ import net.sf.json.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.ServletActionContext;
 
-import cn.itcast.core.util.Constant;
-import cn.itcast.core.util.QueryHelper;
-import cn.itcast.nsfw.complain.entity.Complain;
-import cn.itcast.nsfw.complain.service.ComplainService;
-import cn.itcast.nsfw.info.entity.Info;
-import cn.itcast.nsfw.info.service.InfoService;
-import cn.itcast.nsfw.user.entity.User;
-import cn.itcast.nsfw.user.service.UserService;
+import cn.project.core.util.Constant;
+import cn.project.core.util.QueryHelper;
+import cn.project.travel.complain.entity.Complain;
+import cn.project.travel.complain.service.ComplainService;
+import cn.project.travel.info.entity.Info;
+import cn.project.travel.info.service.InfoService;
+import cn.project.travel.user.entity.User;
+import cn.project.travel.user.service.UserService;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;

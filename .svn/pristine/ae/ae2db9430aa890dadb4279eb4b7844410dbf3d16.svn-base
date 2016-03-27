@@ -1,10 +1,10 @@
-package cn.itcast.nsfw.complain.dao;
+package cn.project.travel.complain.dao;
 
 import java.util.Date;
 import java.util.List;
 
-import cn.itcast.core.dao.BaseDao;
-import cn.itcast.nsfw.complain.entity.Complain;
+import cn.project.core.dao.BaseDao;
+import cn.project.travel.complain.entity.Complain;
 
 public interface ComplainDao extends BaseDao<Complain> {
 

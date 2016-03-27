@@ -1,6 +1,6 @@
-package cn.itcast.nsfw.reserve.action;
+package cn.project.travel.reserve.action;
 
-import cn.itcast.core.action.BaseAction;
+import cn.project.core.action.BaseAction;
 
 public class ReserveAction extends BaseAction {
 

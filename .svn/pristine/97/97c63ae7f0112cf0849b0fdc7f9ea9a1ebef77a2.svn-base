@@ -6,7 +6,7 @@
 <struts>
 	
 	<package name="testAction" namespace="/" extends="struts-default">
-		<action name="test_*" class="cn.itcast.test.action.TestAction" method="{1}">
+		<action name="test_*" class="cn.project.test.action.TestAction" method="{1}">
 			<result name="success">/WEB-INF/jsp/test.jsp</result>
 		</action>
 	</package>

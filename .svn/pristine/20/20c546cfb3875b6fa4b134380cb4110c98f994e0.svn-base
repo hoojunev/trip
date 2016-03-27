@@ -1,8 +1,8 @@
-package cn.itcast.nsfw.reserve.dao.impl;
+package cn.project.travel.reserve.dao.impl;
 
-import cn.itcast.core.dao.impl.BaseDaoImpl;
-import cn.itcast.nsfw.reserve.dao.ReserveDao;
-import cn.itcast.nsfw.reserve.entity.Reserve;
+import cn.project.core.dao.impl.BaseDaoImpl;
+import cn.project.travel.reserve.dao.ReserveDao;
+import cn.project.travel.reserve.entity.Reserve;
 
 public class ReserveDaoImpl extends BaseDaoImpl<Reserve> implements ReserveDao {
 

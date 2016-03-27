@@ -1,4 +1,4 @@
-package cn.itcast.test;
+package cn.project.test;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -34,7 +34,7 @@ public class TestPOI2Excel {
 			
 			cell.setCellValue("Helll World!");
 			
-			FileOutputStream outputStream = new FileOutputStream("D:\\itcast\\测试.xls");
+			FileOutputStream outputStream = new FileOutputStream("D:\\project\\测试.xls");
 			//将文件写到输出流
 			workbook.write(outputStream);
 			workbook.close();
@@ -46,7 +46,7 @@ public class TestPOI2Excel {
 	@Test
 	public void read03Excel() {
 		try {
-			FileInputStream fileInputStream = new FileInputStream("D:\\itcast\\测试.xls");
+			FileInputStream fileInputStream = new FileInputStream("D:\\project\\测试.xls");
 			//1、读取工作簿
 			HSSFWorkbook workbook = new HSSFWorkbook(fileInputStream);
 			//2、读取工作表
@@ -76,7 +76,7 @@ public class TestPOI2Excel {
 			
 			cell.setCellValue("Helll World!");
 			
-			FileOutputStream outputStream = new FileOutputStream("D:\\itcast\\测试.xlsx");
+			FileOutputStream outputStream = new FileOutputStream("D:\\project\\测试.xlsx");
 			//将文件写到输出流
 			workbook.write(outputStream);
 			workbook.close();
@@ -88,7 +88,7 @@ public class TestPOI2Excel {
 	@Test
 	public void read07Excel() {
 		try {
-			FileInputStream fileInputStream = new FileInputStream("D:\\itcast\\测试.xlsx");
+			FileInputStream fileInputStream = new FileInputStream("D:\\project\\测试.xlsx");
 			//1、读取工作簿
 			XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream);
 			//2、读取工作表
@@ -146,7 +146,7 @@ public class TestPOI2Excel {
 			
 			cell.setCellValue("Helll World!");
 			
-			FileOutputStream outputStream = new FileOutputStream("D:\\itcast\\测试.xls");
+			FileOutputStream outputStream = new FileOutputStream("D:\\project\\测试.xls");
 			//将文件写到输出流
 			workbook.write(outputStream);
 			workbook.close();

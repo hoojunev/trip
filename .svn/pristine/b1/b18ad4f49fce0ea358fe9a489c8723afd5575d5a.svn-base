@@ -1,4 +1,4 @@
-package cn.itcast.nsfw.complain.service.impl;
+package cn.project.travel.complain.service.impl;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -11,10 +11,10 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import cn.itcast.core.service.impl.BaseServiceImpl;
-import cn.itcast.nsfw.complain.dao.ComplainDao;
-import cn.itcast.nsfw.complain.entity.Complain;
-import cn.itcast.nsfw.complain.service.ComplainService;
+import cn.project.core.service.impl.BaseServiceImpl;
+import cn.project.travel.complain.dao.ComplainDao;
+import cn.project.travel.complain.entity.Complain;
+import cn.project.travel.complain.service.ComplainService;
 
 @Service("complainService")
 public class ComplainServiceImpl extends BaseServiceImpl<Complain> implements ComplainService {

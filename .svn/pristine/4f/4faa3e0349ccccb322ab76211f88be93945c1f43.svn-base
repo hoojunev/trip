@@ -1,4 +1,4 @@
-package cn.itcast.test.service.impl;
+package cn.project.test.service.impl;
 
 import java.io.Serializable;
 
@@ -6,9 +6,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import cn.itcast.test.dao.TestDao;
-import cn.itcast.test.entity.Person;
-import cn.itcast.test.service.TestService;
+import cn.project.test.dao.TestDao;
+import cn.project.test.entity.Person;
+import cn.project.test.service.TestService;
 
 @Service("testService")
 public class TestServiceImpl implements TestService {

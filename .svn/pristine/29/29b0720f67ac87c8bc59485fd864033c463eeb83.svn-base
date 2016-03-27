@@ -1,11 +1,11 @@
-package cn.itcast.nsfw.user.dao;
+package cn.project.travel.user.dao;
 
 import java.io.Serializable;
 import java.util.List;
 
-import cn.itcast.core.dao.BaseDao;
-import cn.itcast.nsfw.user.entity.User;
-import cn.itcast.nsfw.user.entity.UserRole;
+import cn.project.core.dao.BaseDao;
+import cn.project.travel.user.entity.User;
+import cn.project.travel.user.entity.UserRole;
 
 public interface UserDao extends BaseDao<User> {
 
