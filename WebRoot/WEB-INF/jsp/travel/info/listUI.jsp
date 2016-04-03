@@ -3,6 +3,7 @@
 <head>
     <%@include file="/common/header.jsp"%>
     <title>信息发布管理</title>
+    <script type="text/javascript" src="${basePath }js/datepicker/WdatePicker.js"></script>
     <script type="text/javascript">
   	//全选、全反选
 	function doSelectAll(){
@@ -69,6 +70,13 @@
                 <div class="search_art">
                     <li>
                         信息标题：<s:textfield name="info.title" cssClass="s_text" id="infoTitle"  cssStyle="width:160px;"/>
+                    </li>
+                    <li>
+                       	投诉时间：<s:textfield id="startTime" name="startTime" cssClass="s_text"  cssStyle="width:160px;" 
+                       	readonly="true" onfocus="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd HH:mm'})"/>
+                              - 
+                             <s:textfield id="endTime" name="endTime" cssClass="s_text"  cssStyle="width:160px;"
+                              readonly="true" onfocus="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd HH:mm'})"/>
                     </li>
                     <li><input type="button" class="s_button" value="搜 索" onclick="doSearch()"/></li>
                     <li style="float:right;">

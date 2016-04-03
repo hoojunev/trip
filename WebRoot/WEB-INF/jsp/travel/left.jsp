@@ -75,38 +75,17 @@
             <div class="x_top" style="width:214px;"></div>
             <div class="sm">
 				<dl class="">
-                    <dt><a class="yh" href="${ctx }travel/role_listUI.action" target="mainFrame"><b></b>角色管理<s class="down"></s>
+                    <dt><a class="yh" href="${ctx }travel/user_listUI.action" target="mainFrame"><b></b>游客管理<s class="down"></s>
                     </a></dt>
                 </dl>
                 <dl class="">
-                    <dt><a class="yh" href="${ctx }travel/user_listUI.action" target="mainFrame"><b></b>用户管理<s class="down"></s>
+                    <dt><a class="yh" href="${ctx }travel/guide_listUI.action" target="mainFrame"><b></b>导游管理<s class="down"></s>
                     </a></dt>
                 </dl>
 
                 <dl>
-                    <dt><a class="xxfb" href="${ctx }travel/info_listUI.action" target="mainFrame"><b></b>信息发布管理<s
+                    <dt><a class="xxfb" href="${ctx }travel/travelline_listUI.action" target="mainFrame"><b></b>线路管理<s
                             class="down"></s> </a></dt>
-                </dl>
-                <dl class="">
-                    <dt><a class="tssl" href="${ctx }travel/complain_listUI.action" target="mainFrame"><b></b>投诉受理管理<s
-                            class="down"></s> </a></dt>
-                </dl>
-                <dl class="">
-                    <dt><a class="nszx" href="#" target="mainFrame"><b></b>纳税咨询管理<s class="down"></s> </a></dt>
-                </dl>
-
-                <dl class="">
-                    <dt><a class="fwdc" href="#" target="mainFrame"><b></b>服务调查管理<s class="down"></s> </a></dt>
-                </dl>
-                <dl class="">
-                    <dt><a class="ygz" href="#" target="mainFrame"><b></b>易告知管理<s class="down"></s> </a></dt>
-                </dl>
-                <dl class="">
-                    <dt><a class="fwyy" style="cursor: pointer;"><b></b>服务预约管理<s class="down"></s> </a></dt>
-                    <dd id="fwyygl" style="display:none;">
-                        <a class="" href="${ctx }travel/reserve_listUI.action" target="mainFrame"><b></b>预约服务</a>
-                        <a class="" href="${ctx }travel/reserveItem_listUI.action" target="mainFrame"><b></b>预约事项</a>
-                    </dd>
                 </dl>
             </div>
         </div>

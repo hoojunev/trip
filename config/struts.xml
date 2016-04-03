@@ -53,4 +53,8 @@
 	<include file="cn/project/travel/reserve/conf/reserve-struts.xml"></include>
 	<!-- 服务预约事项管理的struts配置文件 -->
 	<include file="cn/project/travel/item/conf/item-struts.xml"></include>
+	<!-- 包含线路管理的struts配置文件 -->
+	<include file="cn/project/travel/travelline/conf/travelline-struts.xml"></include>
+	<!-- 包含导游管理的struts配置文件 -->
+	<include file="cn/project/travel/guide/conf/guide-struts.xml"></include>
 </struts>

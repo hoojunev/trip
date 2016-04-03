@@ -86,148 +86,16 @@
 <div class="menu">
     <ul class="clearfix">
         <li class="hover"><a href="javascript:void(0);">工作主页</a></li>
-        <li><a href="javascript:void(0);">行政管理</a></li>
-        <li><a href="javascript:void(0);">后勤服务</a></li>
-        <li><a href="javascript:void(0);">在线学习</a></li>       
-        <li><a href="${ctx }/travel/home_frame.action">纳税服务</a> </li>
-        <li><a href="javascript:void(0);">我的空间</a></li>
+        <li><a href="${ctx }/travel/home_frame.action">旅游服务</a> </li>
     </ul>
 </div>
 <!-- }导航 -->
 <!-- 左{ -->
 <div class="content">
-    <div class="left">
-        <!-- 个人资料{ -->
-        <div class="left_grzx1">
-            <div class="left_grzxbt">
-                <h1>个人资料</h1>
-            </div>
-            <table width="98%" border="0" align="center">
-                <tr>
-                    <td width="76" height="100" align="center" valign="middle">
-                        <div class="left-tx">
-                            <s:if test="%{#session.SYS_USER.headImg != null && #session.SYS_USER.headImg != ''}">
-                            <img src="${ctx}/upload/user/<s:property value='#session.SYS_USER.headImg'/>" width="70" height="70" />
-                            </s:if>
-                            <s:else>
-							<img src="${ctx}/images/home/gs09.png" width="70" height="70" />
-							</s:else>
-                        </div>
-                    </td>
-                    <td width="5%"><img src="${ctx}/images/home/gs10.png" width="4" height="59" alt="" /></td>
-                    <td width="60%"><table width="95%" border="0" cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td colspan="2" style=" font-weight:bold; color:#3a7daa;"><s:property value="#session.SYS_USER.name"/></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">所属部门：<s:property value="#session.SYS_USER.dept"/></td>
-                        </tr>
-                    </table>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <!-- }个人资料 -->
-    </div>
-<!-- }左 -->
-
-    <!-- 右{ -->
-    <div class="right">
-        <div class="left_grzx1">
-            <div class="left_grzxbt">
-                <h1>信息列表</h1>
-            </div>
-            <table width="98%" border="0" align="center">
-            	<s:iterator value="#infoList">
-                <tr>
-                    <td height="23">
-                    	<s:url var="viewInfoUrl" namespace="/sys" action="home_infoViewUI">
-                    		<s:param  name="info.infoId"><s:property value="infoId"/></s:param>
-                    	</s:url>
-                    	<s:a href="%{#viewInfoUrl}" target="_blank">
-                    		<s:property value="title"/>
-                    	</s:a>
-                    </td>
-                    <td width="150px"><s:property value="#infoTypeMap[type]"/></td>
-                    <td width="150px"><s:property value="creator"/></td>
-                    <td width="150px"><s:date name="createTime" format="yyyy-MM-dd HH:mm"/></td>
-                </tr>
-                </s:iterator>
-            </table>
-        </div>
-    </div>
-    <!-- }右-->
-    <div class="clear"></div>
-
-    <div class="layout_center">
-        <div class="lc_grzx1">
-            <div class="lc_grzxbt">
-                <h1>我的投诉</h1>
-                <div style="float:right;padding-top:3px;padding-right:5px;">
-                	<s:a action="home_complainAddUI" namespace="/sys" target="_blank">我要投诉</s:a>
-                </div>
-            </div>
-            <table width="98%" border="0" align="center">
-                <s:iterator value="#complainList">
-                <tr>
-                    <td height="23">
-                    	<s:url var="viewComplainUrl" namespace="/sys" action="home_complainViewUI">
-                    		<s:param name="comp.compId"><s:property value="compId"/></s:param>
-                    	</s:url>
-                    	<s:a href="%{#viewComplainUrl}" target="_blank">
-                    		<s:property value="compTitle"/>
-                    	</s:a>
-                    </td>
-                    <td width="180px"><s:property value="#complainStateMap[state]"/></td>
-                    <td width="180px"><s:property value="isNm?'匿名投诉':'非匿名投诉'"/></td>
-                    <td width="180px"><s:date name="compTime" format="yyyy-MM-dd HH:mm"/></td>
-                </tr>
-                </s:iterator>
-            </table>
-        </div>
-        <div class="lc_grzx1">
-            <div class="lc_grzxbt">
-                <h1>我的预约</h1>
-                <div style="float:right;padding-top:3px;padding-right:5px;">
-                	<s:a action="home_reserveAddUI" namespace="/sys" target="_blank">我要预约</s:a>
-                </div>
-            </div>
-            <table width="98%" border="0" align="center">
-                <s:iterator value="#reserveList">
-                <tr>
-                	<td width="180px" align=""><s:property value="reserveNo"/></td>
-                    <td height="23" width="180px">
-                    	<s:url var="viewReserveUrl" namespace="/sys" action="home_reserveViewUI">
-                    		<s:param name="reserve.reserveId"><s:property value="reserveId"/></s:param>
-                    	</s:url>
-                    	<s:a href="%{#viewReserveUrl}" target="_blank">
-                    		<s:property value="item.itemName"/>
-                    	</s:a>
-                    </td>
-                    <td width="180px"><s:property value="reservePlace"/></td>
-                    <td width="180px"><s:date name="reserveTime" format="yyyy-MM-dd HH:mm"/></td>
-                    <td width="180px"><s:property value="#reserveStateMap[result]"/></td>
-                </tr>
-                </s:iterator>
-            </table>
-        </div>
-
-        <div class="lc_grzx1">
-            <div class="lc_grzxbt">
-                <h1>我的咨询</h1>
-            </div>
-            <table width="98%" border="0" align="center">
-                <tr>
-                    <td></td>
-                    <td width="150px"></td>
-                    <td width="150px"></td>
-                </tr>
-            </table>
-        </div>
-    </div>
+欢迎来到主页
 </div>
 <!-- 尾部{ -->
-<div class="foot">版权所有©国税局 2014</div>
+<div class="foot">版权所有©清远工作室 2016</div>
 <!-- }尾部 -->
 </body>
 </html>

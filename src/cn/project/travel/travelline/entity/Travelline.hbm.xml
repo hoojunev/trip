@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.project.travel.travelline.entity.Travelline" table="travelline">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="32" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="attraction" type="java.lang.String">
+			<column name="attraction" length="10" not-null="true" />
+		</property>
+		<property name="startTime" type="java.sql.Timestamp">
+			<column name="startTime" length="20" not-null="true" />
+		</property>		
+		<property name="endTime" type="java.sql.Timestamp">
+			<column name="endTime" length="20" not-null="true" />
+		</property>
+		<property name="costs" type="java.lang.Integer">
+			<column name="costs" length="10" not-null="true" />
+		</property>
+		<property name="tourist" type="java.lang.String">
+			<column name="tourist" length="10" />
+		</property>
+	</class>
+
+</hibernate-mapping>
+	

@@ -74,7 +74,7 @@
     </bean>
     
     <!-- 权限鉴定bean -->
-    <bean id="permissionCheck" class="cn.project.core.permission.impl.PermissionCheckImpl"></bean>
+    <!-- <bean id="permissionCheck" class="cn.project.core.permission.impl.PermissionCheckImpl"></bean> -->
     
     <!-- 引入外部的spring配置文件 -->
     <import resource="classpath:cn/project/travel/*/conf/*-spring.xml"/>

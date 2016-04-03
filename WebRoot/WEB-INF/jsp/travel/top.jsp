@@ -91,11 +91,7 @@
 		<div class="menu">
 			<ul class="clearfix">
 				<li><a href="${basePath}sys/home.action" target="_top">工作主页</a></li>
-                <li><a href="javascript:void(0);">行政管理</a></li>
-                <li><a href="javascript:void(0);">后勤服务</a></li>
-                <li><a href="javascript:void(0);">在线学习</a></li>
                 <li><a href="javascript:void(0);">纳税服务</a></li>
-                <li><a href="javascript:void(0);">我的空间</a></li>
 			</ul>
 		</div>
 	</div>
