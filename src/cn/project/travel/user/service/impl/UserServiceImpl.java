@@ -1,21 +1,12 @@
 package cn.project.travel.user.service.impl;
 
-import java.io.File;
-import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.servlet.ServletOutputStream;
 
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.springframework.stereotype.Service;
 
 import cn.project.core.service.impl.BaseServiceImpl;
-import cn.project.core.util.ExcelUtil;
 import cn.project.travel.user.dao.UserDao;
 import cn.project.travel.user.entity.User;
 import cn.project.travel.user.service.UserService;
@@ -32,79 +23,8 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 	}
 
 	@Override
-	public void delete(Serializable id) {
-		userDao.delete(id);
-		// 删除用户对应的用户角色
-		userDao.deleteUserRolesByUserId(id);
-	}
-
-	@Override
-	public void exportExcel(List<User> userList, ServletOutputStream outputStream) {
-		ExcelUtil.exportExcel(userList, outputStream);
-	}
-
-	@Override
-	public void importExcel(File userExcel) {
-		try {
-			// 1、读取工作簿
-			Workbook workbook = WorkbookFactory.create(userExcel);
-			// 2、读取工作表
-			Sheet sheet = workbook.getSheetAt(0);
-			// 3、读取行(从第3行开始)
-			if (sheet.getPhysicalNumberOfRows() > 2) {
-				// 4、读取单元格（并插入数据到数据库中）
-				User user = null;
-				String name = "", account = "", dept = "", gender = "", mobile = "", email = "";
-				Row row = null;
-				for (int k = 2; k < sheet.getPhysicalNumberOfRows(); k++) {
-					row = sheet.getRow(k);
-					user = new User();
-
-					name = row.getCell(0).getStringCellValue();
-					user.setName(name);
-					account = row.getCell(1).getStringCellValue();
-					user.setAccount(account);
-					dept = row.getCell(2).getStringCellValue();
-					user.setDept(dept);
-					gender = row.getCell(3).getStringCellValue();
-					user.setGender("男".equals(gender));
-
-					try {
-						mobile = row.getCell(4).getStringCellValue();
-					} catch (Exception e) {
-						double tmpMobile = row.getCell(4).getNumericCellValue();
-						// 将科学计数方式显示的值转为正常数值并转为字符串
-						mobile = BigDecimal.valueOf(tmpMobile).toString();
-					}
-					user.setMobile(mobile);
-
-					email = row.getCell(5).getStringCellValue();
-					user.setEmail(email);
-
-					user.setBirthday(row.getCell(6).getDateCellValue());
-
-					// 设置默认密码
-					user.setPassword("123456");
-					// 默认用户状态为有效
-					user.setState(User.USER_STATE_VALID);
-
-					save(user);
-				}
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	@Override
-	public List<User> findUsersByAccountAndId(String account, String id) {
-		return userDao.findUsersByAccountAndId(account, id);
-	}
-
-	@Override
-	public List<User> findUsersByAccountAndPass(String account, String password) {
-		return userDao.findUsersByAccountAndPass(account, password);
+	public List<User> findUsersByAccountAndPass(String account, String password, String role) {
+		return userDao.findUsersByAccountAndPass(account, password, role);
 	}
 
 }

@@ -6,10 +6,7 @@
     <script type="text/javascript" charset="utf-8" src="${basePath }js/ueditor/ueditor.config.js"></script>
     <script type="text/javascript" charset="utf-8" src="${basePath }js/ueditor/ueditor.all.min.js"> </script>
     <script type="text/javascript" charset="utf-8" src="${basePath }js/ueditor/lang/zh-cn/zh-cn.js"></script>
-    <script>
-    	window.UEDITOR_HOME_URL = "${basePath }js/ueditor/";
-    	var ue = UE.getEditor('editor');
-    </script>
+  
 </head>
 <body class="rightBody">
 <form id="form" name="form" action="${basePath}travel/info_edit.action" method="post" enctype="multipart/form-data">
@@ -21,7 +18,6 @@
     <table id="baseInfo" width="100%" align="center" class="list" border="0" cellpadding="0" cellspacing="0"  >
         <tr>
             <td class="tdBg" width="200px">信息分类：</td>
-            <td><s:select name="info.type" list="#infoTypeMap"/></td>
             <td class="tdBg" width="200px">来源：</td>
             <td><s:textfield name="info.source"/></td>
         </tr>
@@ -50,10 +46,9 @@
             </td>
         </tr>
     </table>
-    <s:hidden name="info.infoId"/>
-    <s:hidden name="info.state"/>
+    <s:hidden name="travelline.Id"/>
     <!-- 暂存查询条件 -->
-    <s:hidden name="strTitle"/>
+    <s:hidden name="strTravelline"/>
     <div class="tc mt20">
         <input type="submit" class="btnB2" value="保存" />
         &nbsp;&nbsp;&nbsp;&nbsp;

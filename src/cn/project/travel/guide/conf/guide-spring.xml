@@ -9,9 +9,9 @@
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
     
     <!-- 业务dao -->
-    <bean id="userDao" class="cn.project.travel.user.dao.impl.UserDaoImpl" parent="baseDao">
+    <bean id="guideDao" class="cn.project.travel.guide.dao.impl.GuideDaoImpl" parent="baseDao">
     </bean>
     
     <!-- 扫描所有业务层bean -->
-    <context:component-scan base-package="cn.project.travel.user.service.impl"></context:component-scan>
+    <context:component-scan base-package="cn.project.travel.guide.service.impl"></context:component-scan>
 </beans>

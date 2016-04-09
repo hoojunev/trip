@@ -16,20 +16,31 @@
   	}
   	//编辑
   	function doEdit(id){
+  		var selectedRow = $("[name=selectedRow]:checked");
+  		if(selectedRow.length != 1){
+  			alert("请选择一条线路更新");
+  			return ;
+  		}
   		document.forms[0].action = "${basePath}travel/travelline_editUI.action?travelline.id=" + id;
   		document.forms[0].submit();
   		
   	}
   	//删除
   	function doDelete(id){
+  		var selectedRow = $("[name=selectedRow]:checked");
+  		if(selectedRow.length == 0){
+  			alert("请至少选择一条线路删除");
+  			return ;
+  		}
   		document.forms[0].action = "${basePath}travel/travelline_delete.action?travelline.id=" + id;
   		document.forms[0].submit();
   	}
   	//批量删除
   	function doDeleteAll(){
-  		document.forms[0].action = "${basePath}travel/role_deleteSelected.action";
+  		document.forms[0].action = "${basePath}travel/travelline_deleteSelected.action";
   		document.forms[0].submit();
   	}
+  	var list_url = "${basePath}travel/travelline_listUI.action";
   	//搜索
   	function doSearch(){
   		document.forms[0].action = list_url;

@@ -27,7 +27,7 @@
 		<tr>
 			<td width="26" height="106">&nbsp;</td>
 			<td width="416" height="110" align="left" valign="middle">
-				<img class="zxx_test_png" src="${basePath}images/home/ind01.png" width="470" height="90" alt="" />
+				<img class="zxx_test_png" src="${basePath}images/home/logotitle.png" width="470" height="90" alt="" />
 			</td>
 			<td width="135">&nbsp;</td>
 			<td width="418">
@@ -72,15 +72,6 @@
 						<td width="17"></td>
 						<td width="46"></td>
 					</tr>
-					<tr>
-					    <td align="center"></td>
-                        <td align="left"></td>
-                        <td align="left"><a><b></b><font color="red">欢迎您，${sessionScope.SYS_USER.name }</font></a></td>
-                        <td align="center"><img src="${basePath}images/travel/help.png" width="12"height="17" /></td>
-						<td align="left"><a href="javascript:void(0)">帮助</a></td>
-						<td width="17" align="center"><img src="${basePath}images/travel/exit.png"width="14" height="14"/></td>
-						<td align="left" valign="middle"><a href="${basePath}sys/login_logout.action" target="_top">退出</a></td>
-					</tr>
 				</table>
 			</td>
 		</tr>
@@ -91,7 +82,7 @@
 		<div class="menu">
 			<ul class="clearfix">
 				<li><a href="${basePath}sys/home.action" target="_top">工作主页</a></li>
-                <li><a href="javascript:void(0);">纳税服务</a></li>
+                <li><a href="javascript:void(0);">旅游服务</a></li>
 			</ul>
 		</div>
 	</div>

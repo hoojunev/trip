@@ -10,7 +10,7 @@
 			<result name="{1}">/WEB-INF/jsp/travel/travelline/{1}.jsp</result>
 			<result name="list" type="redirectAction">
 				<param name="actionName">travelline_listUI</param>
-				<param name="travelline.name">${strName}</param>
+				<param name="travelline.name">${strTravelline}</param>
 				<param name="encode">true</param>
 			</result>
 		</action>

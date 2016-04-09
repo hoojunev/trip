@@ -8,7 +8,7 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <title>国税协同办公平台-纳税服务</title>
+    <title>旅游服务系统</title>
     <link href="${basePath}css/travel/css.css" rel="stylesheet" type="text/css" />
     <link href="${basePath}css/travel/style.css" rel="stylesheet" type="text/css" />
 </head>

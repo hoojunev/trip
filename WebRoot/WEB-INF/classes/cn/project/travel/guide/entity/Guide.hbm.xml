@@ -13,7 +13,7 @@
 		</property>
 		<property name="sex" type="java.lang.String">
 			<column name="sex" length="10" not-null="true" />
-		</property>		
+		</property>
 		<property name="age" type="java.lang.String">
 			<column name="age" length="10" not-null="true" />
 		</property>

@@ -34,6 +34,10 @@ public class User implements Serializable {
 
 	public static String USER_STATE_INVALID = "0";// 无效
 
+	public static String ROLE_GUIDE = "1";
+
+	public static String ROLE_TOURIST = "2";
+
 	public User() {
 		super();
 	}

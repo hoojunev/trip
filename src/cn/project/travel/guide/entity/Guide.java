@@ -16,7 +16,6 @@ public class Guide implements Serializable {
 
 	public Guide() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Guide(String id, String name, String sex, String age, String height) {

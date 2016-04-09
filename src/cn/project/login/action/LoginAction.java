@@ -35,7 +35,8 @@ public class LoginAction extends ActionSupport {
 			// 1、获取帐号和密码
 			if (StringUtils.isNotBlank(user.getAccount()) && StringUtils.isNotBlank(user.getPassword())) {
 				// 2、根据帐号和密码查询用户列表
-				List<User> userList = userService.findUsersByAccountAndPass(user.getAccount(), user.getPassword());
+				List<User> userList = userService.findUsersByAccountAndPass(user.getAccount(), user.getPassword(),
+					user.getRole());
 				// 2.1、登录成功
 				if (userList != null && userList.size() > 0) {
 					// 2.1.1、获取用户信息

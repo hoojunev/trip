@@ -7,7 +7,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-    <title>国税协同办公平台</title>
+    <title>旅游服务平台</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="${ctx}/css/home.css" rel="stylesheet" type="text/css" />
 
@@ -20,7 +20,7 @@
     <tr>
         <td width="32" height="106">&nbsp;</td>
         <td width="418" height="106" align="left" valign="middle">
-            <img class="zxx_test_png" src="${ctx}/images/home/ind01.png" width="470" height="90" alt="" />
+            <img class="zxx_test_png" src="${ctx}/images/home/logotitle.png" width="470" height="90" alt="" />
         </td>
         <td width="211">&nbsp;</td>
         <td width="328">
@@ -66,17 +66,6 @@
                     <td width="25" height="4"></td>
                     <td width="50" height="4"></td>
                 </tr>
-                <tr>
-                    <td align="center"></td>
-                    <td align="left"></td>
-                    <td align="right">
-                        <a><b></b><font color="red">欢迎您，<s:property value="#session.SYS_USER.name"/>&nbsp;</font></a>
-                    </td>
-                    <td align="center"><img src="${ctx}/images/home/help.png" width="12" height="17"  /></td>
-                    <td align="left"><a href="javascript:void(0);">帮助</a></td>
-                    <td align="center"><img src="${ctx}/images/home/exit.png" width="14" height="14"   /></td>
-                    <td align="left" valign="middle" ><a href="${ctx}/sys/login_logout.action">退出</a></td>
-                </tr>
             </table>
         </td>
     </tr>
@@ -92,7 +81,7 @@
 <!-- }导航 -->
 <!-- 左{ -->
 <div class="content">
-欢迎来到主页
+<span >欢迎来到主页!(这里可以简单写一段文字去描述自己的系统,随你个人意见)</span>
 </div>
 <!-- 尾部{ -->
 <div class="foot">版权所有©清远工作室 2016</div>
