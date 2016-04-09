@@ -155,7 +155,7 @@ html {
 										</table></td>
 								</tr>
 								<tr>
-									<td>
+									<td colspan='2'>
 										游客:<input type="radio" name="user.role" value="2"/>导游:<input type="radio" name="user.role" value="1"/>
 									</td>
 								</tr>
